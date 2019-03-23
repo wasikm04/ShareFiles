@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Strona główna aplikacji FileShare">
+    <meta name="theme-color" content="#808080"/>
+    <title>Strona główna</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output.css') }}"/>
+</head>
+<body>
+<div id="holder">
+    <strong>
+        <nav class="navbar navbar-dark navbar-inverse bar2">
+            <ul class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/home"
+                                                                    class="name">ShareFiles</a></li>
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/home">Strona główna</a></li>
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/upload">Dodaj plik</a></li>
+            </ul>
+            <ul class="navbar-right col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><a>Zalogowany: {{user}}</a></li>
+                <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4"><a href="/wasikm/webapp/logout">Wyloguj</a></li>
+            </ul>
+        </nav>
+    </strong>
+    <div class="container container4">
+        <h1>Dostępne pliki</h1>
+        <div class="row">
+            {% for i in files %}
+            	<div class="file col-lg-2 col-md-3 col-sm-5 col-xs-12">
+	   	{% if ('.png' in i or '.jpg' in i or '.jpeg' in i) %}    
+               		<img class="container4" src="/wasikm/webapp/icons/{{user}}/{{i}}" alt="icon of file">
+		{% else %}
+	    		<img class="container4" src="/wasikm/webapp/icons/{{user}}/default.png" alt="default icon">
+		{% endif %}
+		<a class="colors" href="/wasikm/webapp/download/{{i}}">{{i}}</a>
+                <a href="/wasikm/webapp/delete/{{i}}" name="{{i}}" class="icon colors"><strong>&times</strong></a>
+                <form action="/wasikm/webapp/share/{{i}}">
+                    <input type="submit" value="Udostępnij"/>
+                </form>
+            	</div>
+            {% endfor %}
+        </div>
+        {% if flash %}
+        <p class=error>Dodano maksymalną liczbę plików (5)</p>
+        {% endif %}
+    </div>
+    <div id="notification" class="note col-lg-6 col-md-8 col-sm-10">
+    {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</div>
+</div>
+
+
+<footer id="footer" class="navbar-fixed-bottom">
+    <div>
+        <p class="col-sm-6 col-xs-6 col-md-12 col-lg-12">Autor: Maciej Wasik</p>
+        <p class="col-sm-6 col-xs-6 col-md-12 col-lg-12">Utworzono: 2018</p>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='main.js') }}" user={{username}} defer="defer"></script>
+</body>
+</html>

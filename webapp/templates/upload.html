@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Strona wysyłania plików aplikacji FileShare">
+    <meta name="theme-color" content="#808080"/>
+    <title>Dodaj plik</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output.css') }}"/>
+</head>
+<body>
+<div id="holder">
+    <strong>
+        <nav class="navbar navbar-dark navbar-inverse bar2">
+            <ul class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/home"
+                                                                    class="name">ShareFiles</a></li>
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/home">Strona główna</a></li>
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/wasikm/webapp/upload">Dodaj plik</a></li>
+            </ul>
+            <ul class="navbar-right col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><a>Zalogowany: {{user}}</a></li>
+                <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4"><a href="/wasikm/webapp/logout">Wyloguj</a></li>
+            </ul>
+        </nav>
+    </strong>
+    <div class="container container3 col-12 content">
+        <form method="POST" enctype="multipart/form-data"
+              action="https://pi.iem.pw.edu.pl/wasikm/dl/upload">
+            <!--action="https://pi.iem.pw.edu.pl/wasikm/dl/upload"-->
+            {% if block == 0 %}
+            <input class="button" type="file" name="file" required/>
+            <input type="hidden" name="jwt" value="{{jwt}}" required/>
+            <input class="button" type="submit"/>
+            {% endif %}
+            {% if error %}
+            <p class=error><strong>{{error}}</strong></p>
+            {% endif %}
+            {% if flash %}
+            <div class="container container4">
+                <p>Pomyślnie dodano plik, możesz dodać następny</p>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <div>
+        <p class="col-sm-6 col-xs-6 col-md-12 col-lg-12">Autor: Maciej Wasik</p>
+        <p class="col-sm-6 col-xs-6 col-md-12 col-lg-12">Utworzono: 2018</p>
+    </div>
+</footer>
+</body>
+</html>

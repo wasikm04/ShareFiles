@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Strona logowania aplikacji FileShare">
+    <meta name="theme-color" content="#808080"/>
+    <title>Logowanie</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output2.css') }}"/>
+</head>
+<body>
+<div id="holder">
+<strong>
+    <nav class="navbar navbar-dark navbar-inverse">
+        <a class="navbar-brand" href="">ShareFiles</a>
+    </nav>
+</strong>
+    <div class="container container3 content wrapper col-sm-10 col-md-8 col-lg-6">
+        <form class="form-signin" action="/wasikm/webapp/login/" method="POST">
+            <h2 class="form-signin-heading">Login</h2>
+            <div class="ctrl">
+                <input class="form-control" type="text" name="username" placeholder="Username" class="form-control"
+                       required>
+            </div>
+            <div class="ctrl">
+                <input class="form-control" type="password" placeholder="Password" name="password" class="form-control"
+                       required>
+            </div>
+            <button type="submit" class="btn btn-secondary">login</button>
+            {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <div>
+        <p>Autor: Maciej Wasik</p>
+        <p>Utworzono: 2018</p>
+    </div>
+</footer>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>-->
+</body>
+</html>

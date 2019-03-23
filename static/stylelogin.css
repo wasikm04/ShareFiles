@@ -1,0 +1,77 @@
+.navbar{
+background-color: black;
+}
+body {
+	background: #eee !important;
+}
+
+@import "bourbon";
+
+body {
+	background: #eee !important;
+}
+.ctrl{
+margin-bottom: 10px;
+}
+.wrapper {
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .form-signin-heading,
+	.checkbox {
+	  margin-bottom: 30px;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+}
+footer{
+padding: 7px;
+ font-family: verdana;
+background-color: #333;
+color: white;
+text-align: right;
+border-radius: 5px;
+position: absolute;
+bottom: 0px;
+width: 100%;
+}
+#footer {
+    clear: both;
+    height: 80px;
+    margin-top: 80px;
+}
+.container3{
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

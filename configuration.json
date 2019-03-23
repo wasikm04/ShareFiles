@@ -1,0 +1,7 @@
+{
+	"app_secret": "secret1",
+	"jwt_secret": "secret2",
+	"client_id" :"secret3",
+    "client_secret":"secret4",
+    "api_base_url":"link to auth0"
+}
