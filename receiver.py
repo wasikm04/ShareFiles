@@ -2,7 +2,7 @@
 import pika
 import sys
 import os
-UPLOAD_FOLDER = os.getcwd()+'/protected/'
+UPLOAD_FOLDER = os.getcwd()+'/dl/protected/'
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 queue = "pictureWorkers"
